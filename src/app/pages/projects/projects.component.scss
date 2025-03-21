@@ -1,0 +1,261 @@
+.projects-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    
+    background-color: #fffdf9;
+    color: white;
+    height: 100vh;
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+
+    @media (max-width: 768px) {
+        flex-direction: column;
+        align-items: center;
+        padding: 3rem 1rem;
+    }
+}
+
+/* Staggered Columns */
+.projects-grid {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    gap: 1rem;
+    height: 120vh; /* Extends beyond viewport */
+    padding-bottom: 5rem;
+    overflow: hidden; /* Ensures the cut-off effect at the top/bottom */
+    position: absolute;
+
+    @media (max-width: 768px) {
+        width: 90%;
+        height: auto;
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+/* Film Strip Effect: Ensures staggered layout */
+.column {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    width: 20%; /* Ensures even width between both columns */
+}
+
+/* Offset Second Column WITHOUT a Large Empty Space */
+.column.offset {
+    width: 20%;
+    transform: translateY(-9rem); /* Moves second column down smoothly */
+}
+
+/* Project Card */
+.project-card {
+    position: relative;
+    display: block; /* Acts as a full clickable link */
+    width: 100%;
+    height: 374px;
+    border-radius: 10px;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    transition: transform 0.5s ease-in-out;
+    text-decoration: none; /* Remove link styling */
+    transform-style: preserve-3d;
+
+    &.flipping{
+        animation: flip-card 0.8s ease-in-out forwards;
+    }
+
+    &:hover {
+        transform: scale(1.05);
+        cursor: pointer;
+    }
+
+    /* Overlay effect */
+    &:before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.5); /* Dark overlay */
+        opacity: 0;
+        transition: opacity 0.5s ease-in-out;
+    }
+
+    &:hover:before {
+        opacity: 1; /* Overlay appears on hover */
+    }
+}
+
+/* Keyframes for the flip effect */
+@keyframes flip-card {
+    0% { transform: rotateY(0deg); opacity: 1; }
+    50% { transform: rotateY(90deg); opacity: 0; }
+    100% { transform: rotateY(180deg); opacity: 1; }
+}
+
+/* Title & Description */
+.project-info {
+    position: absolute;
+    bottom: 7rem;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 90%;
+    text-align: center;
+    color: white;
+    font-family: 'Poppins', sans-serif;
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+}
+
+h3 {
+    text-transform: uppercase;
+}
+
+.project-card:hover .project-info {
+    opacity: 1;
+    transform: translateX(-50%) translateY(-10px); /* Subtle movement */
+}
+
+
+/* Flip Section */
+.toggle-section {
+    position: absolute;
+    bottom: 16%; /* Move it above the nav */
+    right: 35.5%;
+    text-align: right;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+    cursor: pointer;
+
+    @media (max-width: 768px) {
+        bottom: 4rem;
+        right: 1rem;
+        align-items: center;
+    }
+}
+
+
+
+.flip-text {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 6rem;
+    text-transform: uppercase;
+    position: relative;
+    width: fit-content;
+    color: black;
+    font-family: 'Sintony';
+    letter-spacing: 0.3rem;
+    height: 8rem; /* Ensures no shifting */
+}
+
+/* Position both words in the same spot */
+.word {
+    display: flex;
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.5s ease-in-out;
+}
+
+/* Make active word visible */
+.word.active {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+/* Ensure letters stay inline */
+.letter {
+    display: inline-block;
+    transform-origin: center bottom;
+    transition: transform 0.6s ease-in-out;
+}
+
+/* Flip Down Effect */
+.word.active .letter {
+    animation: flip-down 0.6s ease-in-out forwards;
+}
+
+/* Keyframes for Flip Animation */
+@keyframes flip-down {
+    0% { transform: rotateX(0deg); }
+    50% { transform: rotateX(90deg); opacity: 0; }
+    100% { transform: rotateX(0deg); opacity: 1; }
+}
+
+
+
+/* Skill Icons */
+.skills-icons {
+    display: flex;
+    justify-content: flex-end;
+    flex-wrap: wrap;
+    position: absolute;
+    right: 12rem;
+    bottom: 5rem;
+    gap: 3rem;
+}
+
+/* Default Skill Icon Style */
+.skill-icon {
+    width: 50px;
+    transition: transform 0.6s ease-in-out;
+}
+
+/* Flip Animation */
+.skill-icon.flip {
+    animation: flip-skill 0.6s ease-in-out forwards;
+}
+
+/* Keyframes for 3D Flip */
+@keyframes flip-skill {
+    0% { transform: rotateY(0deg); opacity: 1; }
+    50% { transform: rotateY(90deg); opacity: 0; }
+    100% { transform: rotateY(180deg); opacity: 1; }
+}
+
+
+/* Navigation Bar - Fixed at Bottom */
+.navigation {
+    position: absolute;
+    text-align: right;
+    text-transform: uppercase;
+    bottom: 1%;
+    right: 2.3%;
+
+    ul {
+        list-style: none;
+        display: flex;
+        gap: 15rem;
+        font-family: 'Sintony', sans-serif;
+
+        @media (max-width: 768px) {
+            flex-direction: row;
+            gap: 1.5rem;
+        }
+    }
+
+    a {
+        color: black;
+        text-decoration: none;
+        font-family: 'Sintony';
+        transition: color 0.3s ease;
+
+    }
+}
+.navigation li:hover {
+    transform: scale(1.2);
+  }
+  html, body {
+    scroll-behavior: smooth;
+    overflow: hidden; /* Prevents users from scrolling freely */
+    height: 100vh;
+    width: 100vw;
+}
+

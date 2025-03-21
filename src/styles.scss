@@ -1,1 +1,52 @@
-/* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100..900&family=Rubik+Mono+One&family=Sintony:wght@400;700&display=swap');
+
+
+/* ========== Global Reset & Box Model ========== */
+* {
+  box-sizing: border-box;
+}
+
+/* ========== Base HTML & Body Styles ========== */
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;        // ❌ No horizontal scroll
+  overflow-y: scroll;        // ✅ Allow vertical scroll (scrollbar hidden below)
+  scroll-behavior: smooth;
+  scroll-snap-type: y mandatory;
+}
+
+/* ========== Snap Scrolling Fullscreen Sections ========== */
+div[id] {
+  height: 100vh;
+  width: 100%;               // ❌ Replaced 100vw with 100%
+  max-width: 100%;
+  scroll-snap-align: start;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* ========== Hide All Scrollbars (Visually) ========== */
+body {
+  -ms-overflow-style: none;      // IE/Edge
+  scrollbar-width: none;         // Firefox
+}
+
+*::-webkit-scrollbar {
+  width: 0 !important;
+  background-color: transparent !important;
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: transparent !important;
+  border-radius: 0 !important;
+}
+
+*::-webkit-scrollbar:horizontal,
+*::-webkit-scrollbar-thumb:horizontal {
+  width: 0 !important;
+  background-color: transparent !important;
+}

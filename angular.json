@@ -30,7 +30,8 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.scss"
+              "src/styles.scss",
+              "https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100..900&family=Rubik+Mono+One&family=Sintony:wght@400;700&display=swap"
             ],
             "scripts": []
           },
@@ -100,5 +101,8 @@
         }
       }
     }
+  },
+  "cli": {
+    "analytics": "f72147b0-2363-4045-886a-b941937b1c3d"
   }
 }
