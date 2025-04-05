@@ -30,9 +30,8 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.scss",
-              "https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100..900&family=Rubik+Mono+One&family=Sintony:wght@400;700&display=swap"
-            ],
+              "src/styles.scss"
+             ],
             "scripts": []
           },
           "configurations": {

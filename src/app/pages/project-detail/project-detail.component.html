@@ -1,1 +1,90 @@
-<p>project-detail works!</p>
+<section class="project-detail-container">
+  <nav class="navigation">
+    <ul>
+      <li><a routerLink="/">Home</a></li>
+      <li><a [routerLink]="['/']" fragment="projects">Projects</a></li>
+      <li><a [routerLink]="['/']" fragment="about">About</a></li>
+      <li><a [routerLink]="['/']" fragment="contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <div class="project-header">
+    <h1>{{ project.title }}</h1>
+  </div>
+
+  <!-- Overview (Full Width, Unlabeled) -->
+  <div class="project-section project-overview full-width">
+    <p [innerHTML]="project.overview"></p> <div class= "project-image overview-img"> <img [src]="project.images[0]" alt="overview image" /></div>
+    
+  </div>
+
+
+
+  <!-- Purpose & Context / Key Features -->
+  <div class="project-row">
+    <div class="project-section">
+      <h2>Purpose & Context</h2>
+      <p [innerHTML]="project.purpose"></p>
+    </div>
+    <div class="project-section">
+      <h2>Key Features</h2>
+      <p *ngFor="let feature of project.features">{{ feature }}</p>
+        <!-- Image 2 -->
+      <div class="project-image features-img"><img [src]="project.images[1]" alt="Features Image" /></div>
+    </div>
+  </div>
+
+
+
+  <!-- Objective / Approach -->
+  <div class="project-row">
+    <div class="project-section">
+      <h2>Objective</h2>
+      <p [innerHTML]="project.objective"></p>
+        <!-- Image 3 -->
+      <div class="project-image"><img [src]="project.images[2]" alt="Solutions Image" /></div>
+    </div>
+    <div class="project-section">
+      <h2>Approach</h2>
+      <p [innerHTML]="project.approach"></p>
+       <!-- Image 4 -->
+     <div class="project-image"><img [src]="project.images[3]" alt="Approach Image" /></div>
+
+    </div>
+  </div>
+
+ 
+  <!-- Challenges / Solutions -->
+  <div class="project-row">
+    <div class="project-section">
+      <h2>Challenges</h2>
+      <p *ngFor="let challenge of project.challenges">{{ challenge }}</p>
+        <!-- Image 5 -->
+      <div class="project-image"><img [src]="project.images[4]" alt="Future Improvements Image" /></div>
+    </div>
+    <div class="project-section">
+      <h2>Solutions</h2>
+      <p *ngFor="let solution of project.solutions">{{ solution }}</p>
+    </div>
+  </div>
+
+
+
+  <!-- Future Improvements (Full Width) -->
+  <div class="project-section full-width">
+    <h2>Future Improvements</h2>
+    <p *ngFor="let idea of project.future">{{ idea }}</p>
+  </div>
+
+
+
+  <!-- Reflection (Full Width) -->
+  <div class="project-section full-width">
+    <h2>Reflection</h2>
+    <p [innerHTML]="project.reflection"></p>
+  </div>
+
+</section>
+
+  
+  

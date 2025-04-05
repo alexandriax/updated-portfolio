@@ -2,10 +2,11 @@
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
+    flex-direction: column;
     
     background-color: #fffdf9;
     color: white;
-    height: 100vh;
+    height: 100%;
     width: 100%;
     position: relative;
     overflow: hidden;
@@ -28,12 +29,21 @@
     overflow: hidden; /* Ensures the cut-off effect at the top/bottom */
     position: absolute;
 
-    @media (max-width: 768px) {
-        width: 90%;
-        height: auto;
-        flex-direction: column;
-        align-items: center;
-    }
+   
+  @media (max-width: 1024px) {
+    flex-direction: column;
+    align-items: center;
+  }
+
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    align-items: center;
+    height: auto;
+    gap: 0; // reduce gap to avoid huge spaces
+    padding-bottom: 2rem;
+    position: static; 
+  }
 }
 
 /* Film Strip Effect: Ensures staggered layout */
@@ -42,12 +52,26 @@
     flex-direction: column;
     gap: 2rem;
     width: 20%; /* Ensures even width between both columns */
+
+    @media (max-width: 1024px) {
+        width: 80%;
+      }
+    
+      @media (max-width: 768px) {
+        width: 100%;
+        gap: 1rem;
+      }
 }
 
 /* Offset Second Column WITHOUT a Large Empty Space */
 .column.offset {
     width: 20%;
     transform: translateY(-9rem); /* Moves second column down smoothly */
+
+    @media (max-width: 768px) {
+        width: 100%;
+        transform: none;
+      }
 }
 
 /* Project Card */
@@ -86,6 +110,14 @@
     &:hover:before {
         opacity: 1; /* Overlay appears on hover */
     }
+
+    @media (max-width: 768px) {
+        height: 280px;
+      }
+    
+      @media (max-width: 480px) {
+        height: 240px;
+      }
 }
 
 /* Keyframes for the flip effect */
@@ -107,6 +139,15 @@
     font-family: 'Poppins', sans-serif;
     opacity: 0;
     transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+
+    @media (max-width: 768px) {
+        bottom: 4rem;
+      }
+    
+      @media (max-width: 480px) {
+        font-size: 0.8rem;
+        bottom: 3rem;
+      }
 }
 
 h3 {
@@ -131,10 +172,13 @@ h3 {
     cursor: pointer;
 
     @media (max-width: 768px) {
-        bottom: 4rem;
-        right: 1rem;
-        align-items: center;
-    }
+        position: relative;
+        bottom: auto;
+        left: -5rem;
+        justify-content: center;
+       top: 5rem;
+        width: 100%;
+      }
 }
 
 
@@ -151,6 +195,13 @@ h3 {
     font-family: 'Sintony';
     letter-spacing: 0.3rem;
     height: 8rem; /* Ensures no shifting */
+    @media (max-width: 768px) {
+        font-size: 3rem;
+      }
+    
+      @media (max-width: 480px) {
+        font-size: 2rem;
+      }
 }
 
 /* Position both words in the same spot */
@@ -200,6 +251,13 @@ h3 {
     right: 12rem;
     bottom: 5rem;
     gap: 3rem;
+
+    @media (max-width: 768px) {
+        position: relative;
+        right: auto;
+        bottom: auto;
+        margin-bottom: 3rem;
+      }
 }
 
 /* Default Skill Icon Style */
@@ -259,3 +317,68 @@ h3 {
     width: 100vw;
 }
 
+@media (max-width: 1024px) {
+    .column,
+    .column.offset {
+      width: 80%;
+      transform: none;
+    }
+  
+    .toggle-section {
+      position: relative;
+      bottom: auto;
+      right: auto;
+      margin-top: 2rem;
+      justify-content: center;
+    }
+  
+    .skills-icons {
+      position: relative;
+      right: auto;
+      bottom: auto;
+      justify-content: center;
+      gap: 2rem;
+      margin-top: 3rem;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .column,
+    .column.offset {
+      width: 100%;
+      transform: none;
+    }
+  
+    .project-card {
+      height: 300px;
+    }
+  
+    .project-info {
+      bottom: 4rem;
+    }
+  
+    .flip-text {
+      font-size: 3rem;
+    }
+  
+    .skills-icons {
+      flex-wrap: wrap;
+      gap: 1.5rem;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .project-card {
+      height: 250px;
+    }
+  
+    .project-info {
+      font-size: 0.8rem;
+      bottom: 3rem;
+    }
+  
+    .flip-text {
+      font-size: 2rem;
+    }
+  }
+  

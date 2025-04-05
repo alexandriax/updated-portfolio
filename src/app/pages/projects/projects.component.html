@@ -17,28 +17,30 @@
     <div class="projects-grid">
 <!-- First Column (First Half of Projects) -->
 <div class="column">
-    <div *ngFor="let project of currentProjects.slice(0, currentProjects.length / 2)" 
+    <a *ngFor="let project of currentProjects.slice(0, currentProjects.length / 2)" 
          class="project-card"
+         [routerLink]="['/projects', project.id]"
          [class.flipping]="isFlipping"
          [style.backgroundImage]="'url(' + project.image + ')'">
         <div class="project-info">
             <h3>{{ project.title }}</h3>
             <p>{{ project.description }}</p>
         </div>
-    </div>
+    </a>
 </div>
 
 <!-- Second Column (Second Half of Projects) -->
 <div class="column offset">
-    <div *ngFor="let project of currentProjects.slice(currentProjects.length / 2)" 
+    <a *ngFor="let project of currentProjects.slice(currentProjects.length / 2)" 
          class="project-card"
+         [routerLink]="['/projects', project.id]"
          [class.flipping]="isFlipping"
          [style.backgroundImage]="'url(' + project.image + ')'">
         <div class="project-info">
             <h3>{{ project.title }}</h3>
             <p>{{ project.description }}</p>
         </div>
-    </div>
+    </a>
 </div>
 
 

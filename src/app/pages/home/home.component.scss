@@ -1,14 +1,13 @@
-.home-container, html {
+.home-container {
     display: flex;
     flex-direction: column;
     position: relative;
-    height: 100vh;
+    height: 100%;
     background-color: #6f0202;
     padding: 0;
     
     color: white;
-    bottom: 3rem;
-    margin-top: 0.5rem;
+
 
     @media (max-width: 768px) {
         padding: 1rem;
