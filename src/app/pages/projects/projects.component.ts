@@ -27,10 +27,10 @@ goToProject(id: string) {
   ];
 
   backendProjects = [
-    { title: 'API for Portfolio', id: 'api', description: 'Built a REST API.', image: 'assets/imgs/project3.png', link: '#' },
-    { title: 'Auth System', id: 'auth', description: 'User authentication service.', image: 'assets/imgs/project4.png', link: '#' },
-    { title: 'Database Management', id: 'databaseManagement', description: 'Optimized MongoDB schema.', image: 'assets/imgs/project7.png', link: '#' },
-    { title: 'Serverless Functions', id: 'severlessFunctions', description: 'Cloud computing APIs.', image: 'assets/imgs/project8.png', link: '#' }
+    { title: 'Rest API', id: 'api', description: 'Built a REST API.', image: 'assets/imgs/api-hero.png', link: '#' },
+    { title: 'Auth System', id: 'auth', description: 'User authentication service.', image: 'assets/imgs/auth-system-hero.png', link: '#' },
+    { title: 'Database Management', id: 'databaseManagement', description: 'Created & manipulated python database', image: 'assets/imgs/python-recipe-hero.png', link: '#' },
+    { title: 'Serverless Functions', id: 'severlessFunctions', description: 'Firebase functions', image: 'assets/imgs/serverless-functions-hero.png', link: '#' }
   ];
 
   currentProjects = this.frontendProjects; // Default to frontend projects
@@ -44,9 +44,9 @@ goToProject(id: string) {
 
   backendSkills = [
     { name: 'Node.js', icon: 'assets/imgs/node-js.png' },
-    { name: 'MongoDB', icon: 'assets/imgs/mongodb.png' },
-    { name: 'Express', icon: 'assets/imgs/express.png' },
-    { name: 'GraphQL', icon: 'assets/imgs/graphql.png' }
+    { name: 'fiebase', icon: 'assets/imgs/firebase.png' },
+    { name: 'python', icon: 'assets/imgs/python.png' },
+    { name: 'sql', icon: 'assets/imgs/sql.png' }
   ];
 
   currentSkills = this.frontendSkills; // Default to frontend skills
